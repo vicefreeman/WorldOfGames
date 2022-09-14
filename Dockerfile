@@ -1,9 +1,10 @@
-FROM python:3.10-alpine
+FROM ubuntu
 
 COPY . /app
 
 RUN pip install Flask
+RUN pip install Python3
 
-CMD python3 MainGame.py
+CMD python3 /app/MainGame.py
 
 
