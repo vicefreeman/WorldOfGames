@@ -1,5 +1,7 @@
 .git
 .gitignore
+githubssh.pub
+venv
 __pycache__/
 Dockerfile*
 docker-compose*
