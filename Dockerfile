@@ -4,6 +4,6 @@ COPY . /app
 
 RUN pip install Flask
 
-CMD python MainGame.py
+CMD flask --app ./MainGame.py run
 
 
