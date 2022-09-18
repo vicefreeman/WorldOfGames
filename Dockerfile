@@ -8,3 +8,4 @@ RUN pip install requests
 CMD python3 /app/MainGame.py
 
 
+
