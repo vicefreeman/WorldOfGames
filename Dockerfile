@@ -6,7 +6,8 @@ WORKDIR /app
 RUN pip install Flask
 RUN pip install requests
 
-CMD python3 /app/MainGame.py
+CMD python3 MainGame.py
+CMD python3 MainSores.py
 
 
 
