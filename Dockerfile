@@ -5,9 +5,10 @@ WORKDIR /app
 
 RUN pip install Flask
 RUN pip install requests
+RUN pip install selenium
 
 CMD python3 MainGame.py
-CMD python3 MainScores.py
+
 
 
 
