@@ -15,23 +15,25 @@
 import random
 import time
 
-from GameSettings import user_name, game_difficulty
+import GameSettings
+from Score import add_score
 
 
-def play_memory():
-    is_list_equal()
+def play_memory(difficulty):
+    is_list_equal(difficulty)
 
 
-def generate_sequence():
+def generate_sequence(difficulty):
+    # Generating secret sequence
     random_list = []
-    for i in range(game_difficulty):
+    for i in range(difficulty):
         random_list.append(random.randint(1, 101))
     # Printing automated dialog with the user
-    print(f"OK {user_name} , let's check your memory.....\n")
+    print(f"OK {GameSettings.user_name} , let's check your memory.....\n")
     time.sleep(2)
     print("TRY TO REMEMBER...\n")
     time.sleep(1)
-    print(f"Are you ready {user_name}?\n")
+    print(f"Are you ready {GameSettings.user_name}?\n")
     time.sleep(1)
     print("3...\n")
     time.sleep(1)
@@ -49,18 +51,19 @@ def generate_sequence():
     return random_list
 
 
-def get_list_from_user():
+def get_list_from_user(difficulty):
     input_list = []
     print("Let's see if you got it right...\n")
-    for i in range(game_difficulty):
+    for i in range(difficulty):
         input_list.append(int(input("What's the next number?\n")))
     print(input_list)
     return input_list
 
 
-def is_list_equal():
-    if generate_sequence() == get_list_from_user():
+def is_list_equal(difficulty):
+    if generate_sequence(difficulty) == get_list_from_user(difficulty):
         print("WOW! You did it! What a Memory!")
+        add_score(difficulty)
         return True
     else:
         print("Oops...You need to work on your memory")

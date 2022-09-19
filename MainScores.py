@@ -18,4 +18,4 @@ def score_server():
         return error_template
 
 
-#app.run()
+app.run()

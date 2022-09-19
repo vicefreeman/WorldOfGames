@@ -12,28 +12,30 @@
 # 3. play - Will call the functions above and play the game. Will return True / False if the user lost or won.
 
 
-from GameSettings import user_name, game_difficulty
+import GameSettings
+from Score import add_score
 
 import requests
 import random
 
 
-def play_roulette():
+def play_roulette(difficulty):
     # Printing massage while fetching exchange rates from API
     print("Let me check the current exchange rate...\n")
-    random_number, min_range, max_range = get_money_interval()
+    random_number, min_range, max_range = get_money_interval(difficulty)
     print("Done! Let's play!\n")
     guessed_num = get_guess_from_user(random_number)
     # Comparing the results
     if min_range <= guessed_num <= max_range:
-        print(f"Amazing {user_name}! You know your stuff!!")
+        print(f"Amazing {GameSettings.user_name}! You know your stuff!!")
+        add_score(difficulty)
         return True
     else:
         print("No luck...seems that you have some homework to do :)")
         return False
 
 
-def get_money_interval():
+def get_money_interval(difficulty):
     # Getting conversion data from Openexchangerates API
     exchange = requests.get('https://openexchangerates.org/api/latest.json?app_id=d9245db001f94ce48e765311836ce0fa'
                             '&symbols=ILS')
@@ -44,13 +46,13 @@ def get_money_interval():
     # Generating interval based on difficulty
     random_num = random.randint(1, 100)
     total_amount = float("{:.2f}".format(random_num * ils_rate))
-    min_range = total_amount - (5 - game_difficulty)
-    max_range = total_amount + (5 - game_difficulty)
+    min_range = total_amount - (5 - difficulty)
+    max_range = total_amount + (5 - difficulty)
 
     return random_num, min_range, max_range
 
 
 # Getting guess from user
 def get_guess_from_user(usd_amount):
-    user_guess = float(input(f"{user_name}, guess: How much IL Shekels, {usd_amount} Dollars worth?\n"))
+    user_guess = float(input(f"{GameSettings.user_name}, guess: How much IL Shekels, {usd_amount} Dollars worth?\n"))
     return user_guess
