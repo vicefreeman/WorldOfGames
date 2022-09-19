@@ -15,7 +15,7 @@
 import random
 import time
 
-from GameSettings import user_name
+import GameSettings
 from Score import add_score
 
 
@@ -29,11 +29,11 @@ def generate_sequence(difficulty):
     for i in range(difficulty):
         random_list.append(random.randint(1, 101))
     # Printing automated dialog with the user
-    print(f"OK {user_name} , let's check your memory.....\n")
+    print(f"OK {GameSettings.user_name} , let's check your memory.....\n")
     time.sleep(2)
     print("TRY TO REMEMBER...\n")
     time.sleep(1)
-    print(f"Are you ready {user_name}?\n")
+    print(f"Are you ready {GameSettings.user_name}?\n")
     time.sleep(1)
     print("3...\n")
     time.sleep(1)

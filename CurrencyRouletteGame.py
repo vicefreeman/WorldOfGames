@@ -12,7 +12,7 @@
 # 3. play - Will call the functions above and play the game. Will return True / False if the user lost or won.
 
 
-from GameSettings import user_name
+import GameSettings
 from Score import add_score
 
 import requests
@@ -27,7 +27,7 @@ def play_roulette(difficulty):
     guessed_num = get_guess_from_user(random_number)
     # Comparing the results
     if min_range <= guessed_num <= max_range:
-        print(f"Amazing {user_name}! You know your stuff!!")
+        print(f"Amazing {GameSettings.user_name}! You know your stuff!!")
         add_score(difficulty)
         return True
     else:
@@ -54,5 +54,5 @@ def get_money_interval(difficulty):
 
 # Getting guess from user
 def get_guess_from_user(usd_amount):
-    user_guess = float(input(f"{user_name}, guess: How much IL Shekels, {usd_amount} Dollars worth?\n"))
+    user_guess = float(input(f"{GameSettings.user_name}, guess: How much IL Shekels, {usd_amount} Dollars worth?\n"))
     return user_guess

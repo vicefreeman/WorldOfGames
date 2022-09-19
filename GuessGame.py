@@ -7,14 +7,14 @@
 # 2. get_guess_from_user - Will prompt the user for a number between 1 to difficulty and return the number.
 # 3. compare_results - Will compare the secret generated number to the one prompted by the get_guess_from_user.
 # 4. play - Will call the functions above and play the game. Will return True / False if the user lost or won.
-import Score
-from GameSettings import user_name
+
+import GameSettings
 from Score import add_score
 import random
 
 
 def greeting():
-    print(f"{user_name}, LETS BEGIN!!! GOOD LUCK!!\n")
+    print(f"{GameSettings.user_name}, LETS BEGIN!!! GOOD LUCK!!\n")
 
 
 def generate_number(difficulty):
@@ -38,7 +38,7 @@ def play_guess(difficulty):
     gen_num = int(generate_number(difficulty))
     guess_num = int(get_guess_from_user(difficulty))
     if gen_num == guess_num:
-        print(f"Nice One {user_name}! You Guessed it right!")
+        print(f"Nice One {GameSettings.user_name}! You Guessed it right!")
         add_score(difficulty)
         return True
     else:
