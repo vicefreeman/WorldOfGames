@@ -10,7 +10,7 @@ ENV FLASK_RUN_HOST=0.0.0.0
 EXPOSE 3000
 
 CMD python MainGame.py
-CMD python -m flask run
+
 
 
 
