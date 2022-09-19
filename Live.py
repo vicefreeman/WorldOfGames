@@ -4,9 +4,15 @@ game_is_on = True
 
 
 # Greetings message and getting name from the user
-def welcome(name=input("PLease enter your name: ")):
+def welcome(name=input("To get started, please enter your name: ")):
     print(f"\nHello {name} and welcome to the World of Games (WoG)!\nHere you can find many cool games to play.\n")
     GameSettings.user_name = name
+
+
+# Importing Play functions
+from GuessGame import play_guess
+#from MemoryGame import play_memory
+#from CurrencyRouletteGame import play_roulette
 
 
 # Getting input from user and verifying requirements
@@ -26,7 +32,7 @@ def check_input(input_range):
 
 
 # Loading choices of game and difficulty
-def load_game() -> int:
+def load_game():
     choose_game = ("Please choose a game to play:\n "
                    "1. Memory Game - a sequence of numbers will appear for 1 second and you "
                    "have to guess it back.\n "
@@ -36,15 +42,20 @@ def load_game() -> int:
     game = ""
     print(choose_game)
     game_choice = check_input(3)
+    print(choose_dif)
+    difficulty = check_input(5)
+    GameSettings.game_difficulty = difficulty
     if game_choice == 1:
         game = "Memory Game"
     elif game_choice == 2:
         game = "Guess Game"
     else:
         game = "Currency Roulette"
-    print(f"You chose: {game}\n")
-    print(choose_dif)
-    difficulty = check_input(5)
-    print(f"The difficulty level you chose is: {difficulty}\n")
-    GameSettings.game_difficulty = difficulty
-    return game_choice
+    print(f"The difficulty level you chose for {game} is: {difficulty}\n")
+
+    if game == "Memory Game":
+        play_memory(difficulty)
+    elif game == "Guess Game":
+        play_guess(difficulty)
+    elif game == "Currency Roulette":
+        play_roulette(difficulty)
