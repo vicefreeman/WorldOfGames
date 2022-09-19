@@ -7,7 +7,10 @@ RUN pip install Flask
 RUN pip install requests
 RUN pip install selenium
 
-CMD python3 MainGame.py
+EXPOSE 3000
+
+CMD python MainGame.py
+CMD python Score.py
 
 
 
