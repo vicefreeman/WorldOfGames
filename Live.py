@@ -11,8 +11,8 @@ def welcome(name=input("To get started, please enter your name: ")):
 
 # Importing Play functions
 from GuessGame import play_guess
-#from MemoryGame import play_memory
-#from CurrencyRouletteGame import play_roulette
+from MemoryGame import play_memory
+from CurrencyRouletteGame import play_roulette
 
 
 # Getting input from user and verifying requirements

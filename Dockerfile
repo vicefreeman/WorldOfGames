@@ -1,13 +1,15 @@
-FROM python:3.10-alpine
+FROM python:3.9-slim
 
 COPY . /app
 WORKDIR /app
 
-RUN pip install Flask
-RUN pip install requests
-RUN pip install selenium
+RUN pip install -r requirements.txt
+ENV FLASK_APP=MainScores.py
 
-CMD python3 MainGame.py
+EXPOSE 3000
+
+CMD python MainGame.py
+#CMD ["flask", "run"]
 
 
 

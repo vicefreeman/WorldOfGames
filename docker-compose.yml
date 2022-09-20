@@ -1,0 +1,8 @@
+version: "3.10"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:80"
+  app:
+    image: "python:3.9-slim"

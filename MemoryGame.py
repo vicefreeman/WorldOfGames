@@ -19,10 +19,6 @@ import GameSettings
 from Score import add_score
 
 
-def play_memory(difficulty):
-    is_list_equal(difficulty)
-
-
 def generate_sequence(difficulty):
     # Generating secret sequence
     random_list = []
@@ -60,7 +56,7 @@ def get_list_from_user(difficulty):
     return input_list
 
 
-def is_list_equal(difficulty):
+def play_memory(difficulty):
     if generate_sequence(difficulty) == get_list_from_user(difficulty):
         print("WOW! You did it! What a Memory!")
         add_score(difficulty)
