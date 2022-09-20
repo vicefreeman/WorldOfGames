@@ -8,6 +8,8 @@ def welcome(name=input("To get started, please enter your name: ")):
     print(f"\nHello {name} and welcome to the World of Games (WoG)!\nHere you can find many cool games to play.\n")
     GameSettings.user_name = name
 
+    print(GameSettings.user_name)
+
 
 # Importing Play functions
 from GuessGame import play_guess

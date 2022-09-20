@@ -2,25 +2,17 @@
 # The purpose of memory game is to display an amount of random numbers to the users for 0.7 seconds
 # and then prompt them from the user for the numbers that he remember.
 # If he was right with all the numbers the user will win otherwise he will lose.
-# Properties
-# 1. Difficulty
-# Methods
-# 1. generate_sequence - Will generate a list of random numbers between 1 and 101.
-# The list length will be difficulty.
-# 2. get_list_from_user - Will return a list of numbers prompted from the user.
-# The list length will be in the size of difficulty.
-# 3. is_list_equal - A function to compare two lists if they are equal. The function will return True / False.
-# 4. play - Will call the functions above and play the game. Will return True / False if the user lost or won.
 
 import random
 import time
+import os
 
 import GameSettings
 from Score import add_score
 
 
+# Generating secret sequence
 def generate_sequence(difficulty):
-    # Generating secret sequence
     random_list = []
     for i in range(difficulty):
         random_list.append(random.randint(1, 101))
@@ -43,10 +35,11 @@ def generate_sequence(difficulty):
         print(f"{num}\n")
         time.sleep(0.7)
     # Clearing console for hiding the numbers
-    print("\n\n\n\n\n\n")
+    clear_screen()
     return random_list
 
 
+# Getting input from user
 def get_list_from_user(difficulty):
     input_list = []
     print("Let's see if you got it right...\n")
@@ -56,6 +49,7 @@ def get_list_from_user(difficulty):
     return input_list
 
 
+# Main function that compares the secret sequence user's input
 def play_memory(difficulty):
     if generate_sequence(difficulty) == get_list_from_user(difficulty):
         print("WOW! You did it! What a Memory!")
@@ -64,3 +58,8 @@ def play_memory(difficulty):
     else:
         print("Oops...You need to work on your memory")
         return False
+
+
+def clear_screen():
+    # Clearing console output based on current OS
+    os.system('cls' if os.name == 'nt' else 'clear')

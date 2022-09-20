@@ -1,12 +1,6 @@
 # The purpose of guess game is to start a new game, cast a random number between 1 to a
-# variable called difficulty.The game will get a number input from the Properties
-# 1. Difficulty
-# 2. Secret number
-# Methods
-# 1. generate_number - Will generate number between 1 to difficulty and save it to secret_number.
-# 2. get_guess_from_user - Will prompt the user for a number between 1 to difficulty and return the number.
-# 3. compare_results - Will compare the secret generated number to the one prompted by the get_guess_from_user.
-# 4. play - Will call the functions above and play the game. Will return True / False if the user lost or won.
+# variable called difficulty.The game will compare the user's input with the generated sequence.
+
 
 import GameSettings
 from Score import add_score
