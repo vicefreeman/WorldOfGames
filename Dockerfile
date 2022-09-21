@@ -9,7 +9,7 @@ ENV FLASK_APP=MainScores.py
 EXPOSE 3000
 
 CMD python MainGame.py
-#CMD ["flask", "run"]
+
 
 
 

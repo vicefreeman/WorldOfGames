@@ -45,7 +45,6 @@ def get_list_from_user(difficulty):
     print("Let's see if you got it right...\n")
     for i in range(difficulty):
         input_list.append(int(input("What's the next number?\n")))
-    print(input_list)
     return input_list
 
 
