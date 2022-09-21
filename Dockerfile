@@ -8,7 +8,7 @@ ENV FLASK_APP=MainScores.py
 
 EXPOSE 3000
 
-CMD python -i MainGame.py
+CMD python MainGame.py
 
 
 
