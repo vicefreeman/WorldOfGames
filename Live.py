@@ -1,4 +1,6 @@
 import GameSettings
+import Utils
+
 
 game_is_on = True
 
@@ -24,14 +26,15 @@ def check_input(input_range):
             continue
         if user_input >= 0 and int(user_input) <= input_range:
             return user_input
-            break
+
         else:
             print("Not in range")
             continue
 
 
-# Loading choices of game and difficulty
+# Loading game based on user's choices.
 def load_game():
+    # Getting choices from user to configure the game while validating input.
     choose_game = ("Please choose a game to play:\n "
                    "1. Memory Game - a sequence of numbers will appear for 1 second and you "
                    "have to guess it back.\n "
@@ -51,10 +54,14 @@ def load_game():
     else:
         game = "Currency Roulette"
     print(f"The difficulty level you chose for {game} is: {difficulty}\n")
-
+    # Loading the game based on previous choices
     if game == "Memory Game":
         play_memory(difficulty)
     elif game == "Guess Game":
         play_guess(difficulty)
     elif game == "Currency Roulette":
         play_roulette(difficulty)
+    # Checking if player wants to continue playing
+    if Utils.check_play_again():
+        load_game()
+

@@ -1,18 +1,9 @@
 version: "4"
 services:
-  flask-web:
-    build: .
-    volumes:
-      - .:/app
-    command: flask run
-    depends_on:
-      - wog-app
-    ports:
-      - "8080:80"
   wog-app:
-    image: "freemanwog"
+    image: "freeman_wog"
     stdin_open: true
     tty: true
     ports:
-      - "3000:80"
+      - "5000:5000"
 

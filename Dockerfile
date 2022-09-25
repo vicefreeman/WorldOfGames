@@ -6,9 +6,10 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 ENV FLASK_APP=MainScores.py
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD python MainGame.py
+CMD python MainScores.py
 
 
 
