@@ -1,3 +1,4 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -8,8 +9,10 @@ flask_url = "http://127.0.0.1:5000"
 # Getting element from created URL and checking value
 def test_score_service(url):
     driver.get(url)
-    score_element = int(driver.find_element(By.ID, "score"))
-    if 1000 >= score_element >= 1:
+    time.sleep(3)
+    score_element = driver.find_element(By.ID, "score")
+    current_score = int(score_element.text)
+    if 1000 >+ current_score >= 0:
         return True
     else:
         return False
