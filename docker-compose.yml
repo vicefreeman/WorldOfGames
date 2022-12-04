@@ -7,4 +7,10 @@ services:
     tty: true
     ports:
       - "8777:8777"
+  flask-app:
+    build: 
+      context: .
+    ports:
+      - "5000:5000"
+    command: python3 MainScores.py
 
