@@ -1,9 +1,10 @@
 version: "4"
 services:
   wog-app:
-    image: "vicefreeman/python_flask_wog:python_flask_wog"
+    build:
+      context: .
     stdin_open: true
     tty: true
     ports:
-      - "8777:5000"
+      - "8777:8777"
 

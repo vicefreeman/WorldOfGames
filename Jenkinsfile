@@ -18,5 +18,15 @@ pipeline {
                     userRemoteConfigs: [[url: 'https://github.com/vicefreeman/WorldOfGames.git']]])
             }
         }
+        stage('Build Docker Image') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                }
+            }
+        }
     }
 }
